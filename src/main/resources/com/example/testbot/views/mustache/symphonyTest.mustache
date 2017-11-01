@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/assets/pure-min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    </head>
+    <body style="padding: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                    <img src="/assets/SymphonyLlcSymbol.png" height="60" width="60" style="float: right;"/>
+                </div>
+                <div class="col-sm-11">
+                    <h1 >Symphony's API Test - Overall Test: <strong>{{symphonyTest.totalBool}}</strong></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Connection Details</h3>
+                    <ul>
+                        <li style="word-wrap:break-word;">Session Token: <strong>{{symphonyTest.sessionToken}}</strong></li>
+                        <li style="word-wrap:break-word;">KM Token: <strong>{{symphonyTest.kmToken}}</strong></li>
+                        <li style="word-wrap:break-word;">Pod URL: <strong>{{symphonyTest.podUrl}}</strong></li>
+                        <li style="word-wrap:break-word;">Agent URL: <strong>{{symphonyTest.agentUrl}}</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Test Results by Function</h3>
+                        <p>The following tests will call Pod and Agent endpoints. Pod endpoints do not require encryption. Agent endpoints handle messaging and require encryption and decryption.</p>
+                        <ul>
+                            <li><h4>Stream creation: <strong>{{symphonyTest.imCreateBool}}</strong></h4>
+                                <ul>
+                                    <li>A Stream is Symphony's term for a room, IM, or MIM. </li>
+                                    <li>Stream created if ID is not null: <strong>{{symphonyTest.imCreated}}</strong></li>
+                                </ul>
+                            </li>
+                            <li><h4>Retrieve Messages: <strong>{{symphonyTest.messageRetrievedBool}}</strong></h4>
+                                <ul>
+                                    <li>This call is retrieving messages from the created stream and decrypting the messages.</li>
+                                    <li>Number of IMs in conversation: <strong>{{symphonyTest.numberOfMessages}}</strong></li>
+                                </ul>
+                            </li>
+                            <li><h4>Create Message: <strong>{{symphonyTest.messageCreatedBool}}</strong></h4>
+                                <ul>
+                                    <li>This call is creating a message and posting it to the created stream and encrypting the message.</li>
+                                    <li>Message from bot conversation: <strong>{{symphonyTest.newMessage.message}}</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
